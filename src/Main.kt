@@ -71,7 +71,7 @@ fun calcFirstCauchyProblem(nodes: Vector, step: Double): Pair<Vector, Vector> {
         fi = calcF(nodes[i - 1]) - calcP(nodes[i - 1]) * resultY2[i - 1] - calcQ(nodes[i - 1]) * resultY1[i - 1]
         resultY2[i] = resultY2[i - 1] + step * (fi  + calcF(nodes[i]) - calcP(nodes[i]) * (resultY2[i - 1] + step * fi) -
                 calcQ(nodes[i]) * (resultY1[i - 1] + step * resultY2[i - 1])) / 2
-        resultY1[i] = resultY1[i - 1] + step * (resultY2[i - 1] + resultY2[i - 1] + step * fi) / 2
+        resultY1[i] = resultY1[i - 1] + step * (2 * resultY2[i - 1] + step * fi) / 2
     }
 
     return Pair(resultY1, resultY2)
@@ -88,7 +88,7 @@ fun calcSecondCauchyProblem(nodes: Vector, step: Double): Pair<Vector, Vector> {
         fi = -calcP(nodes[i - 1]) * resultY2[i - 1] - calcQ(nodes[i - 1]) * resultY1[i - 1]
         resultY2[i] = resultY2[i - 1] + step * (fi - calcP(nodes[i]) * (resultY2[i - 1] + step * fi) -
                 calcQ(nodes[i]) * (resultY1[i - 1] + step * resultY2[i - 1])) / 2
-        resultY1[i] = resultY1[i - 1] + step * (resultY2[i - 1] + resultY2[i - 1] + step * fi) / 2
+        resultY1[i] = resultY1[i - 1] + step * (2 * resultY2[i - 1] + step * fi) / 2
     }
 
     return Pair(resultY1, resultY2)
@@ -105,7 +105,7 @@ fun calcThirdCauchyProblem(nodes: Vector, step: Double): Pair<Vector, Vector> {
         fi = -calcP(nodes[i - 1]) * resultY2[i - 1] - calcQ(nodes[i - 1]) * resultY1[i - 1]
         resultY2[i] = resultY2[i - 1] + step * (fi - calcP(nodes[i]) * (resultY2[i - 1] + step * fi) -
                 calcQ(nodes[i]) * (resultY1[i - 1] + step * resultY2[i - 1])) / 2
-        resultY1[i] = resultY1[i - 1] + step * (resultY2[i - 1] + resultY2[i - 1] + step * fi) / 2
+        resultY1[i] = resultY1[i - 1] + step * (2 * resultY2[i - 1] + step * fi) / 2
     }
 
     return Pair(resultY1, resultY2)
