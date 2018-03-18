@@ -3,7 +3,7 @@ fun calcF(x: Double): Double {
 }
 
 fun calcP(x: Double): Double {
-    return -6 * x / (3 * Math.pow(x, 2.0))
+    return -6 * x / (3 * Math.pow(x, 2.0) - 0.5)
 }
 
 fun calcQ(x: Double): Double {
@@ -60,7 +60,7 @@ fun gauss(aMtr: Matrix, bVect: Vector): Vector {
     return x
 }
 
-fun calcFirstCauchyProblem(nodes: Vector, step: Double): Pair<Vector, Vector> {
+private fun calcFirstCauchyProblem(nodes: Vector, step: Double): Pair<Vector, Vector> {
     val resultY1 = Vector(nodes.size)
     val resultY2 = Vector(nodes.size)
     var fi: Double
@@ -77,7 +77,7 @@ fun calcFirstCauchyProblem(nodes: Vector, step: Double): Pair<Vector, Vector> {
     return Pair(resultY1, resultY2)
 }
 
-fun calcSecondCauchyProblem(nodes: Vector, step: Double): Pair<Vector, Vector> {
+private fun calcSecondCauchyProblem(nodes: Vector, step: Double): Pair<Vector, Vector> {
     val resultY1 = Vector(nodes.size)
     val resultY2 = Vector(nodes.size)
     var fi: Double
@@ -94,7 +94,7 @@ fun calcSecondCauchyProblem(nodes: Vector, step: Double): Pair<Vector, Vector> {
     return Pair(resultY1, resultY2)
 }
 
-fun calcThirdCauchyProblem(nodes: Vector, step: Double): Pair<Vector, Vector> {
+private fun calcThirdCauchyProblem(nodes: Vector, step: Double): Pair<Vector, Vector> {
     val resultY1 = Vector(nodes.size)
     val resultY2 = Vector(nodes.size)
     var fi: Double
